@@ -6,7 +6,6 @@ RUN apt-get update && apt-get install -y \
     git \
     curl \
     ca-certificates \
-    tini \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Claude Code CLI globally
@@ -24,5 +23,5 @@ RUN git config --global user.name "Claude User" && \
 # API keys/tokens must be provided at runtime
 # docker run -e ANTHROPIC_API_KEY=your-key ...
 
-# Default command - start Claude with tini for proper signal handling
-ENTRYPOINT ["tini", "--", "claude"]
+# Default command - start Claude
+ENTRYPOINT ["claude"]

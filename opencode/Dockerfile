@@ -8,7 +8,6 @@ RUN apt-get update && apt-get install -y \
     ca-certificates \
     ripgrep \
     fzf \
-    tini \
     && rm -rf /var/lib/apt/lists/*
 
 # Install OpenCode via official install script
@@ -28,5 +27,5 @@ RUN git config --global user.name "OpenCode User" && \
 # API keys must be provided at runtime
 # docker run -e ANTHROPIC_API_KEY=your-key ...
 
-# Default command - start OpenCode with tini for proper signal handling
-ENTRYPOINT ["tini", "--", "opencode"]
+# Default command - start OpenCode
+ENTRYPOINT ["opencode"]
